@@ -1,0 +1,10 @@
+<% if @category.products.any? %>
+  <%@category.products.each do |product| %>
+
+    <%= render product, category: @category%>
+  <% end %>
+<%else %>
+  <div class="alert alert-secondary align-items-center" role="alert">
+    At this moment in this category nothing added
+  </div>
+<% end %>

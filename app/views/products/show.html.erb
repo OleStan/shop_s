@@ -1,0 +1,35 @@
+
+<div class="container">
+  <div class="row justify-content-between">
+    <div class="col-auto me-auto"><h3><%=@product.product_name %></h3></div>
+    <div class="col-auto "><h5><span class="badge bg-secondary">Article: <%=@product.article %></span></h5></div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-sm">
+      <%= image_tag(@product.photo, class:"img-fluid") %>
+    </div>
+    <div class="col-sm">
+      <div class="row justify-content-between mt-2 jumbotron ">
+        <div class="col-auto align-self-center">
+          <h1 class="display-5"><strong><%= number_to_currency(@product.price, unit:"UAH", separator: ",", format: "%n%u" ) %></strong></h1>
+        </div>
+        <div class="col-auto align-self-center">
+          <button type="button" class="btn btn-success btn-lg">Buy now</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">Config: <%=@product.config %></div>
+      </div>
+      <br>
+      <div class="row">
+      <div class="col">Factory: <%=@product.factory %></div>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="row mx-3">
+    <%= @product.about %>
+  </div>
+
+</div>
