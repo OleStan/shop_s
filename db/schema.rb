@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 2021_01_10_165241) do
 
   create_table "categories", force: :cascade do |t|
-    t.string "category"
+    t.string "name"
     t.string "image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -22,13 +22,13 @@ ActiveRecord::Schema.define(version: 2021_01_10_165241) do
   end
 
   create_table "products", force: :cascade do |t|
-    t.string "price"
+    t.float "price"
     t.string "about"
     t.string "config"
     t.string "photo"
     t.string "article"
     t.string "factory"
-    t.string "product_name"
+    t.string "name"
     t.integer "category_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

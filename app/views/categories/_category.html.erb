@@ -3,7 +3,7 @@
     <ul class="cat_bar">
       <% @categories_list.roots.each do |category_type|%>
         <li class="cat_item">
-          <%= link_to category_type.category, category_type %>
+          <%= link_to category_type.name, category_type %>
         </li>
       <% end %>
     </ul>

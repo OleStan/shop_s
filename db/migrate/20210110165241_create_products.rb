@@ -7,7 +7,7 @@ class CreateProducts < ActiveRecord::Migration[6.1]
       t.string :photo
       t.string :article
       t.string :factory
-      t.string :product_name
+      t.string :name
       t.references :category, null: false, foreign_key: true
 
       t.timestamps

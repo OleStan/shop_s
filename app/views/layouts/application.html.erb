@@ -9,6 +9,41 @@
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+      $('#product_category_name').autocomplete
+      source: $('#product_category_name').data('autocomplete-source')
+      $( function() {
+          var availableTags = [
+              "ActionScript",
+              "AppleScript",
+              "Asp",
+              "BASIC",
+              "C",
+              "C++",
+              "Clojure",
+              "COBOL",
+              "ColdFusion",
+              "Erlang",
+              "Fortran",
+              "Groovy",
+              "Haskell",
+              "Java",
+              "JavaScript",
+              "Lisp",
+              "Perl",
+              "PHP",
+              "Python",
+              "Ruby",
+              "Scala",
+              "Scheme"
+          ];
+          $( "#tags" ).autocomplete({
+              source: availableTags
+          });
+      } );
+  </script>
 </head>
 
 <body>
@@ -38,7 +73,7 @@
           </ul>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          <input type="search" placeholder="Enter name..." data-behavior="autocomplete">
         </li>
       </ul>
       <form class="d-flex">
@@ -48,8 +83,19 @@
     </div>
   </div>
 </nav>
+<%= form_with url: search_categories_path, class: "d-flex", method: :get, local:true do |f|  %>
+  <%= f.text_field :category_name, data: {autocomplete_source: Category.order(:name).map(&:name)} %>
 
+  <%#= f.text_field                    #:q, id: :q, class: "form-control me-2", placeholder:"Search"#%>
+  <%#= f.submit "Search", class: "btn btn-outline-success" %>
+<%end %>
+
+<div class="ui-widget">
+  <label for="tags">Tags: </label>
+  <input id="tags">
+</div>
 <main class="container">
+
   <div class="row">
 
   </div>

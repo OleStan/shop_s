@@ -1,7 +1,7 @@
 <div class="card border-light mb-3" style="max-width: 12rem;">
   <%= image_tag(product.photo, class: "card-img-top", alt: product.config )%>
   <div class="card-body">
-    <p class="card-text"><%= link_to product.product_name, category_product_path(category, product), class: "link-danger" %></p>
+    <p class="card-text"><%= link_to product.name, category_product_path(category, product), class: "link-danger" %></p>
     <h5 class="card-title"><%= number_to_currency(product.price, unit:"UAH", separator: ",", format: "%n%u" ) %> </h5>
   </div>
 </div>

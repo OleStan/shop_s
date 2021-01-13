@@ -5,7 +5,7 @@
     <% @categories.each do |categ|  %>
       <% next if categ.products.count <= 0 %>
       <% count_loop = 0 %>
-      <h4><%= categ.category %></h4>
+      <h4><%= categ.name %></h4>
       <div class="row">
         <%categ.products.each do |product| %>
             <% break if count_loop >= 5%>

@@ -5,9 +5,10 @@ Rails.application.routes.draw do
   get '/admin', to: 'pages#admin', as: 'admin'
   get 'admin/categories', to: 'categories#index', as: 'admin_categories'
   #get 'category', to: 'pages#category', as: 'category'
-
   resources :pages
   resources :categories, only: :show do
+    get "range", on: :collection
+    get "search", on: :collection
     resources :products, only: [:index, :show]
   end
   resources :users

@@ -1,6 +1,31 @@
-<% if @category.products.any? %>
-  <%@category.products.each do |product| %>
 
+<table class="pretty">
+  <tr>
+    <th><%= sortable "name",  params[:min], params[:max] %> </th>
+    <th><%= sortable "price", params[:min], params[:max] %> </th>
+    <th><%= sortable "created_at", params[:min], params[:max], "Created" %> </th>
+  </tr>
+  <% @products.each do |product| %>
+    <tr>
+      <td><%= product.name %></td>
+
+      <td class="price"><%= number_to_currency(product.price) %></td>
+      <td><%= product.created_at %></td>
+    </tr>
+  <% end %>
+</table>
+<%= form_with url: @category, class: "d-flex", method: :get, local:true do |f|  %>
+  <%= f.hidden_field :sort, id: :sort, value: params[:sort] %>
+  <%= f.hidden_field :directions, id: :directions, value: params[:directions]  %>
+  <%= f.text_field :min, id: :min, class: "form-control me-2", placeholder:"min" , value: params[:min] %>
+  <%= f.text_field :max, id: :max, class: "form-control me-2", placeholder:"max", value: params[:max] %>
+  <%= f.hidden_field :category_id, value: @category.id %>
+  <%= f.submit "Search", class: "btn btn-outline-success" %>
+<%end %>
+
+<h1><%= @category.name %></h1>
+<% if @category.products.any? %>
+  <%@products.each do |product| %>
     <%= render product, category: @category%>
   <% end %>
 <%else %>
