@@ -2,6 +2,7 @@
 
 class CategoriesController < ApplicationController
   before_action :set_category, only: %i[show]
+  before_action :force_json, only: :sear
 
   def index
     # @categories = Category.all
@@ -44,7 +45,7 @@ class CategoriesController < ApplicationController
     end
   end
 
-  def search
+  def searchdo
     @categories_list = Category.all
     @product_list = Product.where('name LIKE ?', "%#{params[:product_name.to_s]}%")
     products_list
@@ -54,8 +55,16 @@ class CategoriesController < ApplicationController
   def to_param
     name
   end
+  def search
+    q = params[:q].downcase
+    @products = Product.where('name LIKE ? or about LIKE ?', "%#{q}%", "%#{q}%").limit(5)
+  end
 
   private
+
+  def force_json
+    request.format = :json
+  end
 
   def sort_column
     Product.column_names.include?(params[:sort]) ? params[:sort] : nil

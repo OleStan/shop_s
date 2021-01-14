@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
   before_action :find_category, only: [:show]
   before_action :set_product, only: [:show]
 
+
   def index; end
 
   def show; end
@@ -10,6 +11,7 @@ class ProductsController < ApplicationController
     name
   end
   private
+
 
   def find_category
     @category = Category.find(params[:category_id])

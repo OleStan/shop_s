@@ -5,11 +5,7 @@
         $("#<%= @category.name %>").addClass("active");
         <% end %>
     })
-
 </script>
-<div class="alert alert-danger">
-<%= params[:product_name.to_s] %>
-</div>
 <div class="row">
   <%= render 'categories/category'  %>
   <div class="col-9 ps-3 ">
