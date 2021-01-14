@@ -6,6 +6,9 @@ class ProductsController < ApplicationController
 
   def show; end
 
+  def to_param
+    name
+  end
   private
 
   def find_category

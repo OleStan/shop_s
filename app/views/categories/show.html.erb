@@ -1,35 +1,60 @@
+<script>
+    $( document ).ready(function() {
+        $("#<%= params[:sort] %>").addClass("active");
+        <% if @category.present? %>
+        $("#<%= @category.name %>").addClass("active");
+        <% end %>
+    })
 
-<table class="pretty">
-  <tr>
-    <th><%= sortable "name",  params[:min], params[:max] %> </th>
-    <th><%= sortable "price", params[:min], params[:max] %> </th>
-    <th><%= sortable "created_at", params[:min], params[:max], "Created" %> </th>
-  </tr>
-  <% @products.each do |product| %>
-    <tr>
-      <td><%= product.name %></td>
-
-      <td class="price"><%= number_to_currency(product.price) %></td>
-      <td><%= product.created_at %></td>
-    </tr>
-  <% end %>
-</table>
-<%= form_with url: @category, class: "d-flex", method: :get, local:true do |f|  %>
-  <%= f.hidden_field :sort, id: :sort, value: params[:sort] %>
-  <%= f.hidden_field :directions, id: :directions, value: params[:directions]  %>
-  <%= f.text_field :min, id: :min, class: "form-control me-2", placeholder:"min" , value: params[:min] %>
-  <%= f.text_field :max, id: :max, class: "form-control me-2", placeholder:"max", value: params[:max] %>
-  <%= f.hidden_field :category_id, value: @category.id %>
-  <%= f.submit "Search", class: "btn btn-outline-success" %>
-<%end %>
-
-<h1><%= @category.name %></h1>
-<% if @category.products.any? %>
-  <%@products.each do |product| %>
-    <%= render product, category: @category%>
-  <% end %>
-<%else %>
-  <div class="alert alert-secondary align-items-center" role="alert">
-    At this moment in this category nothing added
+</script>
+<div class="alert alert-danger">
+<%= params[:product_name.to_s] %>
+</div>
+<div class="row">
+  <%= render 'categories/category'  %>
+  <div class="col-9 ps-3 ">
+    <h1><%=  @category.present? ? @category.name : "Search result for: #{params[:product_name]}"%></h1>
+    <div class="row mx-1 p-3 bg-light align-items-start alert alert-secondary">
+      <div class="col-lg-4 col-sm-auto btn-group">
+        <%= sortable "name",  params[:min], params[:max], params[:product_name] %>
+        <%= sortable "price", params[:min], params[:max], params[:product_name] %>
+        <%= sortable "created_at", params[:min], params[:max], params[:product_name], "Created" %>
+      </div>
+      <div class="col-lg-3 col-sm-0"></div>
+      <div class="col-lg-5 col-sm-auto">
+        <%= form_with url: @category, class: "d-flex", method: :get, local:true do |f|  %>
+          <div class="input-group mb-3">
+            <span class="input-group-text">From:</span>
+            <%= f.text_field :min, id: :min, class: "form-control", placeholder:"min" , value: params[:min], type: "number" %>
+            <span class="input-group-text">to:</span>
+            <%= f.text_field :max, id: :max, class: "form-control", placeholder:"max", value: params[:max], type: "number" %>
+            <%= f.submit "Filter", class: "btn btn-outline-success" %>
+          </div>
+          <%= f.hidden_field :sort, id: :sort, value: params[:sort] %>
+          <%= f.hidden_field :directions, id: :directions, value: params[:directions]  %>
+        <%end %>
+      </div>
+    </div>
+    <div class="row ms-lg-4">
+      <% if @product_list.any? %>
+        <%@products.each do |product| %>
+          <div class="card border-light" style="max-width: 14rem;">
+            <%= image_tag(product.photo, class: "card-img-top", alt: product.config )%>
+            <div class="card-body">
+              <% name = Product.find_by(name: product.name) %>
+              <p class="card-text"><%= link_to product.name, category_product_path(product.category_id, product, name.name), class: "link-danger" %></p>
+              <h6 class="card-title"><%= number_to_currency(product.price, unit:"UAH", separator: ",", format: "%n%u" ) %> </h6>
+            </div>
+          </div>
+        <% end %>
+        <%= pagy_bootstrap_nav(@pagy).html_safe if @pagy.present? %>
+      <%else %>
+        <div class="alert alert-secondary align-items-center" role="alert">
+          At this moment in this category nothing added
+        </div>
+      <% end %>
+    </div>
   </div>
-<% end %>
+
+</div>
+</div>

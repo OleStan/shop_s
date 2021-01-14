@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class CategoriesController < ApplicationController
-  before_action :set_category, only: [:show]
+  before_action :set_category, only: %i[show]
 
   def index
     # @categories = Category.all
@@ -14,20 +14,9 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    # @category.save
-    # @products = if sort_column && sort_direction
-    # Product.order("#{sort_column} #{sort_direction}")
-    # else
-    # Product.all
-    # end
-    @products = if params[:min].nil? && params[:max].nil?
-                  (sort_column && sort_direction) ? Product.order("#{sort_column} #{sort_direction}") : Product.all
-                else
-                  if !(sort_column && sort_direction)
-                    Product.min_price(minimum).max_price(maximum).order(sort_column.to_s)
-                  else Product.min_price(minimum).max_price(maximum).order("#{sort_column} #{sort_direction}")
-                  end
-                end
+    @categories_list = Category.all
+    @product_list = @category.products
+    products_list
   end
 
   def create
@@ -55,16 +44,15 @@ class CategoriesController < ApplicationController
     end
   end
 
-  def range
-    @products = Product.min_price(params[:min]).max_price(params[:max])
-    @category = Category.find(params[:id])
-    render 'categories/show'
+  def search
+    @categories_list = Category.all
+    @product_list = Product.where('name LIKE ?', "%#{params[:product_name.to_s]}%")
+    products_list
+    render :'categories/show'
   end
 
   def to_param
-    return nil unless persisted?
-
-    [id, slug].join('-')
+    name
   end
 
   private
@@ -82,7 +70,7 @@ class CategoriesController < ApplicationController
   end
 
   def minimum
-    params[:min].nil? ? 0 : params[:min]
+    params[:min].nil? || params[:min] == '' ? 0 : params[:min]
   end
 
   def maximum
@@ -91,5 +79,18 @@ class CategoriesController < ApplicationController
 
   def category_params
     params.require(:category).permit(:name, :parent_id, :image)
+  end
+
+  def products_list
+    @products = if params[:min].nil? && params[:max].nil?
+                  sort_column && sort_direction ? @product_list.order("#{sort_column} #{sort_direction}") : @product_list
+                else
+                  if !(sort_column && sort_direction)
+                    @product_list.min_price(minimum).max_price(maximum).order(sort_column.to_s)
+                  else @product_list.min_price(minimum).max_price(maximum).order("#{sort_column} #{sort_direction}")
+                  end
+                end
+    @pagy, @products = pagy(@products)
+
   end
 end

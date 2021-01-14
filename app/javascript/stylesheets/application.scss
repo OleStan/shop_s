@@ -1,6 +1,8 @@
 //= require jquery-ui
 
 @import "~bootstrap/scss/bootstrap.scss";
+
+
 .left_side_bar{
   border-right: 1px solid darkgrey;
 }
@@ -45,9 +47,9 @@ ul.ui-autocomplete {
 }
 
 .pretty th .asc {
-  background-image: url(1);
+  //background-image: url(1);
 }
 
 .pretty th .desc {
-  background-image: url(1);
+  //background-image: url(1);
 }
