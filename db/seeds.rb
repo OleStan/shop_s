@@ -10,3 +10,14 @@ Category.create([{ name: 'Computer' },
                  { name: 'Food' },
                  { name: 'For Kids' },
                  { name: 'Computer_child', ancestry: '1' }])
+25.times do
+  Product.create(name: Faker::Food.dish,
+                     price: rand(0.1..500.00),
+                     about: Faker::Food.description,
+                     config:  Faker::Food.ingredient,
+                     photo: "https://i2.rozetka.ua/goods/1157159/hlebobulochnie-izdeliya_top_1157159589.jpg",
+                     article: rand(100000..999999),
+                     factory: "111",
+                     category_id: '3',
+                    )
+end
