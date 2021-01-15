@@ -11,8 +11,7 @@
     "bootstrap-autocomplete": "^2.3.7",
     "easy-autocomplete": "^1.3.5",
     "jquery": "^3.5.1",
-    "turbolinks": "^5.2.0",
-    "webpack": "^5.14.0"
+    "turbolinks": "^5.2.0"
   },
   "version": "0.1.0",
   "devDependencies": {
