@@ -18,7 +18,7 @@ import 'jquery'
 import '@popperjs/core'
 import 'bootstrap'
 
-import '../application'
+import '../stylesheets/application'
 
 
 
