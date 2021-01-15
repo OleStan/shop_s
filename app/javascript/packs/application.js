@@ -18,7 +18,7 @@ import 'jquery'
 import '@popperjs/core'
 import 'bootstrap'
 
-import '../stylesheets/application'
+import '../application'
 
 
 
@@ -32,6 +32,3 @@ import "./search"
 import  "./jquery.easy-autocomplete"
 //import "css/site-s"
 //import "popper.js"
-
-
-
