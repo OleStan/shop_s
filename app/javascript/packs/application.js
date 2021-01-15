@@ -32,3 +32,6 @@ require("easy-autocomplete")
 import "./search"
 import  "./jquery.easy-autocomplete"
 
+
+
+

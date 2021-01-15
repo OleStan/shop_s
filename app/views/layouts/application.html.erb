@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%#= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -13,25 +13,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/easy-autocomplete/1.3.5/jquery.easy-autocomplete.min.js" integrity="sha512-Z/2pIbAzFuLlc7WIt/xifag7As7GuTqoBbLsVTgut69QynAIOclmweT6o7pkxVoGGfLcmPJKn/lnxyMNKBAKgg==" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/easy-autocomplete/1.3.5/easy-autocomplete.min.css" integrity="sha512-TsNN9S3X3jnaUdLd+JpyR5yVSBvW9M6ruKKqJl5XiBpuzzyIMcBavigTAHaH50MJudhv5XIkXMOwBL7TbhXThQ==" crossorigin="anonymous" />
 
-  <script>
-      $( document ).ready(function() {
-          document.addEventListener("turbolinks:load", function() {
 
-              $input = $('*[data-behavior="autocomplete"]')
-
-              var options = {
-                  url: function(phrase) {
-                      return "/categories/search.json?q=" + phrase;
-                  },
-                  getValue: "name",
-              };
-
-              $input.easyAutocomplete(options);
-
-          });
-      })
-  </script>
-</head>
 
 <body class="">
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark bg-gradient">
