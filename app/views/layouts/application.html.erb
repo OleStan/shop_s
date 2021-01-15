@@ -11,6 +11,25 @@
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/easy-autocomplete/1.3.5/jquery.easy-autocomplete.min.js" integrity="sha512-Z/2pIbAzFuLlc7WIt/xifag7As7GuTqoBbLsVTgut69QynAIOclmweT6o7pkxVoGGfLcmPJKn/lnxyMNKBAKgg==" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/easy-autocomplete/1.3.5/easy-autocomplete.min.css" integrity="sha512-TsNN9S3X3jnaUdLd+JpyR5yVSBvW9M6ruKKqJl5XiBpuzzyIMcBavigTAHaH50MJudhv5XIkXMOwBL7TbhXThQ==" crossorigin="anonymous" />
+
+  <script>
+      $( document ).ready(function() {
+          document.addEventListener("turbolinks:load", function() {
+
+              $input = $('*[data-behavior="autocomplete"]')
+
+              var options = {
+                  url: function(phrase) {
+                      return "/categories/search.json?q=" + phrase;
+                  },
+                  getValue: "name",
+              };
+
+              $input.easyAutocomplete(options);
+
+          });
+      })
+  </script>
 </head>
 
 <body class="">
@@ -49,7 +68,6 @@
     </div>
   </div>
 </nav>
-
 
 
 <main class="container">
