@@ -27,11 +27,13 @@ Turbolinks.start()
 ActiveStorage.start()
 require("channels")
 require("jquery")
-
 require("easy-autocomplete")
 import "./search"
 import  "./jquery.easy-autocomplete"
-
-
+//import "css/site-s"
+import "jquery"
+import "channels"
+//import "popper.js"
+import "bootstrap"
 
 
