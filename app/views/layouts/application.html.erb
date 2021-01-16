@@ -36,9 +36,9 @@
             Account
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="/users/sign_in">Sing in</a></li>
+            <li><a class="dropdown-item" href="/users/sign_up">Sing in</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="/users/log_in">Log in</a></li>
+            <li><a class="dropdown-item" href="/users/sign_in">Log in</a></li>
           </ul>
         </li>
           <% else %>
@@ -47,8 +47,8 @@
               <%= current_user.email %>
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><a class="dropdown-item" href="#"></a></li>
+              <%= link_to 'Sing out', destroy_user_session_path,  method: :delete, class: "dropdown-item" %>
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" href="#">Something else here</a></li>
             </ul>
