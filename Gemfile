@@ -25,6 +25,11 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'pagy', '~> 3.5'
 
+#admin panel
+gem 'activeadmin'
+
+# Plus integrations with:
+gem 'devise'
 
 
 # Use Active Storage variant

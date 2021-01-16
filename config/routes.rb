@@ -1,9 +1,10 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  devise_for :users, ActiveAdmin::Devise.config
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   root 'pages#index', as: 'home'
-  get '/admin', to: 'pages#admin', as: 'admin'
-  get 'admin/categories', to: 'categories#index', as: 'admin_categories'
   # get 'category', to: 'pages#category', as: 'category'
   resources :pages
   resources :categories, only: :show do
