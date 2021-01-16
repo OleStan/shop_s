@@ -2,7 +2,7 @@
 
 class CategoriesController < ApplicationController
   before_action :set_category, only: %i[show]
-  before_action :force_json, only: :sear
+  before_action :force_json, only: :search
 
   def index
     # @categories = Category.all
