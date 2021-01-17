@@ -14,6 +14,7 @@
           <h1 class="display-5"><strong><%= number_to_currency(@product.price, unit:"UAH", separator: ",", format: "%n%u" ) %></strong></h1>
         </div>
         <div class="col-auto align-self-center">
+          <%= link_to 'Add to cart', add_to_cart_path(item: @product.id), class: 'btn btn-info btn-lg', role: "button", style: "color: white"  %>
           <button type="button" class="btn btn-success btn-lg">Buy now</button>
         </div>
       </div>
