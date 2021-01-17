@@ -1,7 +1,7 @@
 <h1>Cart</h1>
 
 <% @items_list.each do |cart_item| %>
-  <% product = Product.find(cart_item.id) %>
+  <% product = Product.find(cart_item.item) %>
   <div>
     <%= product.name %>/
     <%= link_to '-', quantity_path(argument: '-', id: cart_item.id), remote: true %>
