@@ -17,13 +17,13 @@ class CartsController < ApplicationController
     else
       Cart.create(cart_params)
     end
-    redirect_to '/carts'
+    render 'carts/cart_add', product: @product
   end
 
   def change_quantity
     case params[:argument]
     when '-'
-      @item.quantity <= 1 ? @item.quantity = 0 : @item.decrement(:quantity)
+      @item.quantity <= 1 ? @item.quantity = 1 : @item.decrement(:quantity)
     when '+'
       @item.increment(:quantity)
     end
