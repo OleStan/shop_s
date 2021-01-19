@@ -14,7 +14,7 @@
           <div class="col"><%= image_tag(product.photo, class:"img-fluid") %></div>
           <div class="col">
             <div class="btn-group me-2" role="group" aria-label="Second group">
-              <%cart_item = current_user.carts.find(product.id) %>
+              <%cart_item = current_user.carts.find_by(item: product.id) %>
               <%= link_to '-', quantity_path(argument: '-', id: cart_item.id), remote: true, type: "button",  class: "btn btn-secondary" %>
               <div id="quantity_id_<%= cart_item.id %>" class="alert alert-secondary" role="alert">
                 <%= cart_item.quantity %>

@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5ba736b8-3b3a-4341-8a27-e24d7318d837" name="Default Changelist" comment="order ready">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/products/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/products/show.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,7 +147,7 @@
       <workItem from="1610952474211" duration="2090000" />
       <workItem from="1610986403654" duration="15014000" />
       <workItem from="1611052917600" duration="9783000" />
-      <workItem from="1611064246807" duration="15450000" />
+      <workItem from="1611064246807" duration="16104000" />
     </task>
     <task id="LOCAL-00001" summary="no css ready cart index no css, js present">
       <created>1610919627018</created>
@@ -185,7 +184,14 @@
       <option name="project" value="LOCAL" />
       <updated>1611081815430</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="order ready">
+      <created>1611082862407</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1611082862407</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
