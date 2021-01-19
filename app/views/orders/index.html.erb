@@ -1,0 +1,38 @@
+<div class="container-sm">
+  <% @orders.each do |order| %>
+    <% product = Product.find(order.item) %>
+    <div class="shadow p-3 mb-5 rounded  bg-light bg-gradient border border-1">
+      <div class="row border-bottom border-4 ">
+        <p>Order time: <%= order.created_at.strftime("%k:%M %d of %B, %Y") %></p>
+        <div class="col-2">
+          <p class="h6" >Order №<%= order.id %></p>
+        </div>
+        <div class="col-7 display-6"><%= product.name %></div>
+        <div class="col-3 w-25 ">
+          <% if order.status == 0%>
+            <div class="alert alert-warning " role="alert">
+              In process
+            </div>
+          <% elsif order.status == 1 %>
+            <div class="alert alert-success" role="alert">
+              Confirmed
+            </div>
+          <% elsif order.status == 2 %>
+            <div class="alert alert-danger " role="alert">
+              Canceled
+            </div>
+          <% end %>
+            </div>
+          </div>
+      <div class="row mt-3 justify-content-around">
+        <div class="col">
+          <%= image_tag(product.photo, class: "rounded border border-1 w-50" )%>
+        </div>
+        <div class="col">
+          <div class="row">Quantity: <%= order.quantity %></div>
+          <div class="row">Сustomer email: <%= User.find(order.user_id).email %></div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

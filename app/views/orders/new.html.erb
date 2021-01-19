@@ -1,0 +1,72 @@
+
+<%= form_with(model: @order) do |form| %>
+  <% if @order.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@order.errors.count, "error") %> prohibited this post from being saved:</h2>
+      <ul>
+        <% @order.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="row">
+    <div class="col-8">
+      <div class="row justify-content-between">
+        <div class="col-auto">
+        <h3><%= @product.name %></h3>
+        </div>
+        <div class="col-auto">
+        <span class="badge bg-secondary" style="width: 4rem"><%=@product.article %></span>
+        </div>
+      </div>
+    </div>
+    <div class="col-4 jumbotron">
+      <h4>Bill sum</h4>
+      <div class="row justify-content-between">
+        <div class="col-auto">One item cost</div>
+        <div class="col-auto">
+          <%= number_to_currency(@product.price, unit:"UAH", separator: ",", format: "%n%u" ) %>
+        </div>
+      </div>
+        <div class="row mt-2 justify-content-between">
+          <div class="col-auto">Delivery</div><div class="col-auto"><strong>free</strong></div>
+        </div>
+        <hr>
+        <div class="row justify-content-between align-items-center">
+          <div class="col-auto">To be paid:</div>
+          <div class="col-auto">
+            <h1 class="h4" id="value">
+             <%= number_to_currency(@product.price * params[:quantity].to_i, unit:"UAH", separator: ",", format: "%n%u")%>
+            </h1>
+          </div>
+        </div>
+      <hr>
+      <div class="actions">
+        <%= form.submit( {:class => "btn btn-success",id: "button"})%>
+      </div>
+        <div class="field">
+          <%= form.hidden_field :item, value: @product.id, class: "form-control"%>
+        </div>
+      </div>
+    </div>
+
+    <div class="field">
+      <%= form.label :quantity %>
+      <%= form.number_field :quantity, value: params[:quantity].to_i, class: "form-control"  %>
+    </div>
+
+
+
+    <div class="actions">
+      <%= form.submit( {:class => "btn btn-success",id: "button"})%>
+    </div>
+
+<% end %>
+<script>
+    var input = document.getElementById("order_quantity");
+    input.addEventListener('keyup', function (){
+        $('#value').empty();
+        $('#value').append((input.value*<%= @product.price %>).toFixed(2), ' UAH');
+    })
+</script>

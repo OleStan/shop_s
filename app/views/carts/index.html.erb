@@ -10,5 +10,9 @@
     </div>
     <%#= number_field :item_quantity, class:"form-control"%>
     <%= link_to '+', quantity_path(argument: '+', id: cart_item.id), remote: true %>
+    <%= link_to 'Buy now',
+                new_order_path(product: product.id, quantity: cart_item.quantity),
+                class: 'btn btn-success btn-lg', id: "buy_button",
+                role: "button", style: "color: white"%>
   </div>
 <% end %>

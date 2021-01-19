@@ -1,16 +1,15 @@
-
-<div class="container">
-  <div class="row justify-content-between">
+<div class="container mt-5">
+  <div class="row justify-content-between align-items-center">
     <div class="col-auto me-auto"><h3><%=@product.name %></h3></div>
     <div class="col-auto "><h5><span class="badge bg-secondary">Article: <%=@product.article %></span></h5></div>
   </div>
   <hr>
   <div class="row">
     <div class="col-sm">
-      <%= image_tag(@product.photo, class:"img-fluid") %>
+      <%= image_tag(@product.photo, class:"img-fluid", style: 'min-width: 28rem') %>
     </div>
     <div class="col-sm">
-      <div class="row justify-content-between mt-2 jumbotron ">
+      <div class="row justify-content-between mt-2 mb-3 jumbotron ">
         <div class="col-auto align-self-center">
           <h1 class="display-6"><strong><%= number_to_currency(@product.price, unit:"UAH", separator: ",", format: "%n%u" ) %></strong></h1>
         </div>
@@ -21,15 +20,21 @@
                       role: "button", style: "color: white",
                       remote: true,
                       data: { "bs-target": "#addProduct", "bs-toggle": "modal" }%>
-          <button type="button" class="btn btn-success btn-lg">Buy now</button>
+
+          <%= link_to 'Buy now',
+                      new_order_path(product: @product.id, quantity: 1),
+                      class: 'btn btn-success btn-lg', id: "buy_button",
+                      role: "button", style: "color: white"%>
         </div>
       </div>
-      <div class="row">
-        <div class="col">Config: <%=@product.config %></div>
+      <div class="row jumbotron mb-0">
+        <h4>Config:</h4>
+        <div class="col"> <%=@product.config %></div>
       </div>
       <br>
-      <div class="row">
-        <div class="col">Factory: <%=@product.factory %></div>
+      <div class="row jumbotron mt-0">
+        <h4>Factory:</h4>
+        <div class="col"> <%=@product.factory %></div>
       </div>
     </div>
   </div>
