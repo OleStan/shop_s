@@ -1,7 +1,8 @@
 <div class="card border-light m-0" style="max-width: 12rem;">
-  <%= image_tag(product.photo, class: "card-img-top", alt: product.config )%>
+  <% name = Product.find_by(name: product.name) %>
+  <%= link_to image_tag(product.photo, class: "card-img-top", alt: product.config ),
+              category_product_path(category, product, name.name) %>
   <div class="card-body align-items-center">
-    <% name = Product.find_by(name: product.name) %>
     <p class="card-text"><%= link_to product.name, category_product_path(category, product, name.name), class: "link-danger" %></p>
     <h6 class="card-title"><%= number_to_currency(product.price, unit:"UAH", separator: ",", format: "%n%u" ) %> </h6>
   </div>
