@@ -1,3 +1,24 @@
+
+<% if current_user.nil? %>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Please log in or sing in</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        You cannot perform this action until you register
+      </div>
+      <div class="modal-footer">
+        <%= link_to 'Log in', "/users/sign_up", class: "btn btn-secondary"%>
+        <%= link_to 'Sign in', "/users/sign_in", class: "btn btn-secondary"%>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
+
 <div class="container mt-5">
   <div class="row justify-content-between align-items-center">
     <div class="col-auto me-auto"><h3><%=@product.name %></h3></div>
@@ -14,6 +35,7 @@
           <h1 class="display-6"><strong><%= number_to_currency(@product.price, unit:"UAH", separator: ",", format: "%n%u" ) %></strong></h1>
         </div>
         <div class="col-auto align-self-center">
+          <% if current_user.present? %>
           <%= link_to 'Add to cart',
                       add_to_cart_path(item: @product.id),
                       class: 'btn btn-info btn-lg', id: "cart_button",
@@ -22,9 +44,17 @@
                       data: { "bs-target": "#addProduct", "bs-toggle": "modal" }%>
 
           <%= link_to 'Buy now',
-                      new_order_path(product: @product.id, quantity: 1),
+                      new_order_path(product: @product.id),
                       class: 'btn btn-success btn-lg', id: "buy_button",
                       role: "button", style: "color: white"%>
+            <% else %>
+            <button type="button" class="btn btn-info btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              Add to cart
+            </button>
+            <button type="button" class="btn btn-success btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              Buy now
+            </button>
+          <% end %>
         </div>
       </div>
       <div class="row jumbotron mb-0">
