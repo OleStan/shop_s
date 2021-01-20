@@ -13,7 +13,6 @@ cloudinary:
   api_secret: "A9-1OAXwa3xKJGtfx3XDyu1eEjk"
   secure: true
   cdn_subdomain: true
-
 #   bucket: your_own_bucket
 
 # Use rails credentials:edit to set the AWS secrets (as aws:access_key_id|secret_access_key)
