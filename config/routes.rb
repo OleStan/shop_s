@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get 'buy', to: 'orders#add_order'
   # get 'category', to: 'pages#category', as: 'category'
   resources :orders
-  get 'order_list', to: 'orders#index', as:'order_index'
+  get 'order_list', to: 'orders#index', as: 'order_index'
   resources :carts
   resources :pages
   resources :categories, only: :show do
