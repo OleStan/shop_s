@@ -1,5 +1,7 @@
 class Product < ApplicationRecord
   belongs_to :category
+  has_one_attached :photo
+
   scope :min_price, ->(min) { where('price >= ?', min) }
   scope :max_price, ->(max) { where('price <= ?', max) }
 
