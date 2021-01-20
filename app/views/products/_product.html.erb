@@ -1,6 +1,6 @@
 <div class="card border-light m-0" style="max-width: 12rem;">
   <% name = Product.find_by(name: product.name) %>
-  <%= link_to image_tag(product.photo, class: "card-img-top", alt: product.config ),
+  <%= link_to image_tag(url_for(product.photo), class: "card-img-top", alt: product.config ),
               category_product_path(category, product, name.name) %>
   <div class="card-body align-items-center">
     <p class="card-text"><%= link_to product.name, category_product_path(category, product, name.name), class: "link-danger" %></p>

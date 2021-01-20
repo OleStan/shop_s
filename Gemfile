@@ -30,8 +30,8 @@ gem 'activeadmin'
 
 # Plus integrations with:
 gem 'devise'
-
-
+# for active stor
+gem 'cloudinary'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

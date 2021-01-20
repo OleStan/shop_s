@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5ba736b8-3b3a-4341-8a27-e24d7318d837" name="Default Changelist" comment="ready active records with lockal params">
+    <list default="true" id="5ba736b8-3b3a-4341-8a27-e24d7318d837" name="Default Changelist" comment="again forgotet files">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/pages/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/pages/index.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/environments/development.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/environments/development.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/storage.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/storage.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -15,11 +19,20 @@
       <list>
         <option value="HTML File" />
         <option value="ERB File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -150,7 +163,7 @@
       <workItem from="1611052917600" duration="9783000" />
       <workItem from="1611064246807" duration="24198000" />
       <workItem from="1611125673723" duration="16170000" />
-      <workItem from="1611169913954" duration="1862000" />
+      <workItem from="1611169913954" duration="4866000" />
     </task>
     <task id="LOCAL-00001" summary="no css ready cart index no css, js present">
       <created>1610919627018</created>
@@ -236,7 +249,14 @@
       <option name="project" value="LOCAL" />
       <updated>1611171251642</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="again forgotet files">
+      <created>1611172374602</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1611172374602</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -266,7 +286,8 @@
     <MESSAGE value="no css on login" />
     <MESSAGE value="edited registration page" />
     <MESSAGE value="ready active records with lockal params" />
-    <option name="LAST_COMMIT_MESSAGE" value="ready active records with lockal params" />
+    <MESSAGE value="again forgotet files" />
+    <option name="LAST_COMMIT_MESSAGE" value="again forgotet files" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/shop_s@Development__shop_s.rcov" NAME="Development: shop_s Coverage Results" MODIFIED="1611169968465" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="shop_s" />
