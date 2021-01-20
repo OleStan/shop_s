@@ -2,7 +2,7 @@ class OrdersController < ApplicationController
   before_action :set_user
 
   def index
-    @orders = @user.orders
+    @pagy, @orders = pagy(@user.orders, items: 5)
   end
 
   def new
@@ -23,12 +23,6 @@ class OrdersController < ApplicationController
         format.json { render json: @order.errors, status: :unprocessable_entity }
       end
     end
-  end
-
-  def add_order
-    order_params = permitted_order_params.merge(user_id: @user.id)
-    Order.create(order_params)
-    render 'orders/buy_now'
   end
 
   private

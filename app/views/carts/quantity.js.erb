@@ -1,2 +1,4 @@
 $('#quantity_id_<%= @item.id %>').empty();
-$('#quantity_id_<%= @item.id %>').append('<%= @item.quantity %>')
+$('#quantity_id_<%= @item.id %>').append('<%= @item.quantity %>');
+$('#price_<%= @item.id %>').empty();
+$('#price_<%= @item.id %>').append('Price: <%=number_to_currency(((@price).round(2)), unit:"UAH", separator: ",",format: "%n %u" )  %>');

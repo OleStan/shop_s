@@ -4,13 +4,12 @@ class CartsController < ApplicationController
   before_action :set_user
   before_action :find_product, only: [:change_quantity]
   def index
-    @items_list = @user.carts
+    @pagy, @items_list = pagy(@user.carts, items: 5)
   end
 
   def add
     cart_params = permitted_cart_params.merge(user_id: @user.id)
     @product = Cart.find_by(cart_params.except(:quantity))
-
     if @product.present?
       @product.increment(:quantity)
       @product.save
@@ -18,6 +17,15 @@ class CartsController < ApplicationController
       Cart.create(cart_params)
     end
     render 'carts/cart_add', product: @product
+  end
+
+  def destroy
+    @cart = @user.carts.find(params[:id])
+    @cart_id = @cart.id
+    render 'carts/cart_destroy'
+    @cart.destroy
+
+
   end
 
   def change_quantity
@@ -28,6 +36,7 @@ class CartsController < ApplicationController
       @item.increment(:quantity)
     end
     @item.save
+    @price = Product.find(@item.id).price * @item.quantity
     render 'carts/quantity'
   end
 

@@ -1,18 +1,42 @@
-<h1>Cart</h1>
-
-<% @items_list.each do |cart_item| %>
-  <% product = Product.find(cart_item.item) %>
-  <div>
-    <%= product.name %>/
-    <%= link_to '-', quantity_path(argument: '-', id: cart_item.id), remote: true %>
-    <div id="quantity_id_<%= cart_item.id %>">
-      <%= cart_item.quantity %>
+<div class="container-sm">
+  <h1>Cart</h1>
+  <% @items_list.each do |cart_item| %>
+    <% product = Product.find(cart_item.item) %>
+    <div id="cart_<%= cart_item.id %>" class="shadow p-3 mb-5 rounded  bg-light bg-gradient border border-1">
+      <div class="row bcart_item-bottom bcart_item-4 justify-content-between">
+        <div class="col-auto display-6"><%= product.name %></div>
+        <div class="col-auto">
+          <%= link_to 'Delete', cart_item, class: 'btn btn-danger',  method: :delete, data: { confirm: 'Are you sure?' }, remote: true %>
+        </div>
+      </div>
+      <div class="row mt-3 justify-content-around">
+        <div class="col">
+          <%= image_tag(product.photo, class: "rounded border border-1 w-50" )%>
+        </div>
+        <div class="col">
+          <div class="row">Сustomer email: <%= User.find(cart_item.user_id).email %></div>
+          <div class="row display-6 mb-5 mt-3 align-items-start justify-content-start">
+            <div class="col-auto"><%= link_to '-', quantity_path(argument: '-', id: cart_item.id), remote: true,
+                                              class: 'btn btn-secondary btn-lg'%></div>
+            <div id="quantity_id_<%= cart_item.id %>" class="col-auto">
+              <%= cart_item.quantity %>
+            </div>
+            <div class="col-auto"><%= link_to '+', quantity_path(argument: '+', id: cart_item.id), remote: true,
+                                              class: 'btn btn-secondary btn-lg'%></div>
+          </div>
+          <div class="row display-6 mt-3" id="price_<%= cart_item.id %>">Price: <%=number_to_currency(((product.price * cart_item.quantity).round(2)),
+                                                                                                      unit:"UAH", separator: ",", format: "%n%u" )  %></div>
+          <div class="row mt-3">
+            <%= link_to 'Buy now',
+                        new_order_path(product: product.id, quantity: cart_item.quantity),
+                        class: 'btn btn-success btn-lg w-50', id: "buy_button",
+                        role: "button", style: "color: white"%>
+          </div>
+        </div>
+      </div>
     </div>
-    <%#= number_field :item_quantity, class:"form-control"%>
-    <%= link_to '+', quantity_path(argument: '+', id: cart_item.id), remote: true %>
-    <%= link_to 'Buy now',
-                new_order_path(product: product.id, quantity: cart_item.quantity),
-                class: 'btn btn-success btn-lg', id: "buy_button",
-                role: "button", style: "color: white"%>
-  </div>
-<% end %>
+    </div>
+
+  <% end %>
+  <%= pagy_bootstrap_nav(@pagy).html_safe if @pagy.present? %>
+  </div>  </div>

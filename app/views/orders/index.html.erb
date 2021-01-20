@@ -1,4 +1,5 @@
-<div class="container-sm">
+
+<h1>Orders</h1>
   <% @orders.each do |order| %>
     <% product = Product.find(order.item) %>
     <div class="shadow p-3 mb-5 rounded  bg-light bg-gradient border border-1">
@@ -31,8 +32,13 @@
         <div class="col">
           <div class="row">Quantity: <%= order.quantity %></div>
           <div class="row">Сustomer email: <%= User.find(order.user_id).email %></div>
+          <div class="row display-6">Price: <%=number_to_currency(((product.price * order.quantity).round(2)),
+                                                                  unit:"UAH", separator: ",", format: "%n %u" )  %>
+          </div>
         </div>
       </div>
     </div>
   <% end %>
+
+  <%= pagy_bootstrap_nav(@pagy).html_safe if @pagy.present? %>
 </div>

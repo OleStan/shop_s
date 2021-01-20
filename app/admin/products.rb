@@ -14,5 +14,5 @@ ActiveAdmin.register Product do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  
+  permit_params :price, :about, :config, :photo, :article, :factory, :name, :category_id
 end
