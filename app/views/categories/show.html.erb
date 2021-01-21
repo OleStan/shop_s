@@ -1,8 +1,8 @@
 <script>
     $( document ).ready(function() {
         <% if @category.parent_id.present? %>
-        $('#child_block_<%= @category.parent_id %>').show();
-        $('#child_block_<%= @category.parent_id %>').attr("id", "current");
+        $('.child_block_<%= @category.parent_id %>').show();
+        $('.child_block_<%= @category.parent_id %>').removeClass( "child_block_<%= @category.parent_id %>" );
         <% end %>
         $("#<%= params[:sort] %>").addClass("active");
         <% if @category.present? %>
