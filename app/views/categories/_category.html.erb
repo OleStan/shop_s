@@ -6,25 +6,24 @@
           <% name = Category.find_by(name: category_type.name) %>
           <%= link_to category_type.name, category_path(category_type, name.name),
                       class:"list-group-item list-group-item-action", id:category_type.name  %>
-
+          <ul class="list-group px-3 subcategory">
             <% category_type.children.each do |category_child| %>
-            <ul class="list-group px-3 subcategory" id="child_block_<%= category_type.id %>" style="display: none;">
+              <li class="child_block_<%= category_type.id %>"  style="display: none; list-style-type: none;" >
               <% name = Category.find_by(name: category_child.name) %>
               <%= link_to category_child.name, category_path(category_child, name.name),
                           class:"list-group-item list-group-item-action px-2", id:category_child.name  %>
-              </ul>
+              </li>
             <% end %>
+          </ul>
             </li>
         <script>
             var li = document.getElementById("parent_block_<%= category_type.id %>");
             li.addEventListener('mouseenter', function (){
-                a = $('child_block_<%= category_type.id %>');
-                $('#child_block_<%= category_type.id %>').show('slow');
+                $('.child_block_<%= category_type.id %>').show('slow');
             })
 
             li.addEventListener('mouseleave', function (){
-                a = $('child_block_<%= category_type.id %>');
-                $('#child_block_<%= category_type.id %>').hide('slow');
+                $('.child_block_<%= category_type.id %>').hide('slow');
             })
 
         </script>
