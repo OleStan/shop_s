@@ -1,5 +1,9 @@
 <script>
     $( document ).ready(function() {
+        <% if @category.parent_id.present? %>
+        $('#child_block_<%= @category.parent_id %>').show();
+        $('#child_block_<%= @category.parent_id %>').attr("id", "current");
+        <% end %>
         $("#<%= params[:sort] %>").addClass("active");
         <% if @category.present? %>
         $("#<%= @category.name %>").addClass("active");
@@ -8,7 +12,7 @@
 </script>
 <div class="row">
   <%= render 'categories/category'  %>
-  <div class="col-9 ps-3 ">
+  <div class="col-9 ps-3 mt-5">
     <h1><%=  @category.present? ? @category.name : "Search result for: #{params[:product_name]}"%></h1>
     <div class="row mx-1 p-3 bg-light align-items-start alert alert-secondary">
       <div class="col-lg-4 col-sm-auto btn-group">

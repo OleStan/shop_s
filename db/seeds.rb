@@ -17,7 +17,6 @@ Category.create([{ name: 'Computer' },
                  price: rand(0.1..500.00),
                  about: Faker::Food.description,
                  config:Faker::Food.ingredient + Faker::Food.ingredient + Faker::Food.ingredient,
-                 photo: 'https://i2.rozetka.ua/goods/1157159/hlebobulochnie-izdeliya_top_1157159589.jpg',
                  article: rand(100_000..999_999),
                  factory: '111',
                  category_id: '3')

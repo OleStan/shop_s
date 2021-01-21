@@ -2,21 +2,32 @@
   <div class="mt-3">
     <ul class="list-group">
       <% @categories_list.roots.each do |category_type|%>
+        <li style="list-style-type: none;" id="parent_block_<%= category_type.id %>">
+          <% name = Category.find_by(name: category_type.name) %>
+          <%= link_to category_type.name, category_path(category_type, name.name),
+                      class:"list-group-item list-group-item-action", id:category_type.name  %>
 
-        <% name = Category.find_by(name: category_type.name) %>
-        <%= link_to category_type.name, category_path(category_type, name.name),
-                    class:"list-group-item list-group-item-action", id:category_type.name  %>
-        <!--
-          <ul class="list-group px-5">
-            <%# category_type.children.each do |category_child| %>
-              <%# name = Category.find_by(name: category_child.name) %>
-              <%#= link_to category_child.name, category_path(category_child, name.name),
+            <% category_type.children.each do |category_child| %>
+            <ul class="list-group px-3 subcategory" id="child_block_<%= category_type.id %>" style="display: none;">
+              <% name = Category.find_by(name: category_child.name) %>
+              <%= link_to category_child.name, category_path(category_child, name.name),
                           class:"list-group-item list-group-item-action px-2", id:category_child.name  %>
-
               </ul>
-            <%# end %>
-        <%# end %>
-        -->
+            <% end %>
+            </li>
+        <script>
+            var li = document.getElementById("parent_block_<%= category_type.id %>");
+            li.addEventListener('mouseenter', function (){
+                a = $('child_block_<%= category_type.id %>');
+                $('#child_block_<%= category_type.id %>').show('slow');
+            })
+
+            li.addEventListener('mouseleave', function (){
+                a = $('child_block_<%= category_type.id %>');
+                $('#child_block_<%= category_type.id %>').hide('slow');
+            })
+
+        </script>
       <% end %>
     </ul>
   </div>
@@ -25,3 +36,4 @@
     <p>Contact info</p>
   </div>
 </div>
+

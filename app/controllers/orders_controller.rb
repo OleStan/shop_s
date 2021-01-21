@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
   before_action :set_user
+  before_action :authenticate_user!
 
   def index
     @pagy, @orders = pagy(@user.orders, items: 5)

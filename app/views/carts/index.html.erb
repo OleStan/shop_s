@@ -28,7 +28,7 @@
                                                                                                       unit:"UAH", separator: ",", format: "%n%u" )  %></div>
           <div class="row mt-3">
             <%= link_to 'Buy now',
-                        new_order_path(product: product.id, quantity: cart_item.quantity),
+                        new_order_path(product: product.id, quantity: cart_item.quantity, from_cart: true, cart_id: cart_item.id),
                         class: 'btn btn-success btn-lg w-50', id: "buy_button",
                         role: "button", style: "color: white"%>
           </div>

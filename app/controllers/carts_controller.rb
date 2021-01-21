@@ -3,6 +3,8 @@
 class CartsController < ApplicationController
   before_action :set_user
   before_action :find_product, only: [:change_quantity]
+  before_action :authenticate_user!
+
   def index
     @pagy, @items_list = pagy(@user.carts, items: 5)
   end
@@ -36,7 +38,7 @@ class CartsController < ApplicationController
       @item.increment(:quantity)
     end
     @item.save
-    @price = Product.find(@item.id).price * @item.quantity
+    @price = Product.find(@item.item).price * @item.quantity
     render 'carts/quantity'
   end
 
