@@ -17,7 +17,7 @@ class OrdersController < ApplicationController
     @order = Order.new(order_params)
     respond_to do |format|
       if @order.save
-        OrdersMailer.with(user: @user).complete_order.deliver_now
+        OrdersMailer.with(user: @user, product: @product).complete_order.deliver_now
         format.html { redirect_to order_index_url, notice: 'order was successfully created.' }
       else
         format.html { render :new }
