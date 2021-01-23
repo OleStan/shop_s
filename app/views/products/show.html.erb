@@ -74,8 +74,14 @@
     <%= @product.about %>
   </div>
   <hr>
+  <% if current_user.present? %>
   <div><%= link_to 'Add comment',  new_comment_path(product_id: @product.id),
                    method: :get, class: 'btn btn-success btn-lg' %></div>
+<% else %>
+  <div class="alert alert-danger">
+    only registered user can left comment
+  </div>
+  <% end %>
   <div class="row">
     <% if @product.comments.any? %>
       <div>
@@ -86,8 +92,8 @@
         <% end %>
       </div>
     <% else %>
-      <div class="alert alert-danger">
-        only registered user can left comment
+      <div class="alert alert-secondary">
+        At this moment no comments
       </div>
     <% end %>
   </div>
