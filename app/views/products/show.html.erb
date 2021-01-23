@@ -1,22 +1,22 @@
 
 <% if current_user.nil? %>
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Please log in or sing in</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        You cannot perform this action until you register
-      </div>
-      <div class="modal-footer">
-        <%= link_to 'Log in', "/users/sign_up", class: "btn btn-secondary"%>
-        <%= link_to 'Sign in', "/users/sign_in", class: "btn btn-secondary"%>
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Please log in or sing in</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          You cannot perform this action until you register
+        </div>
+        <div class="modal-footer">
+          <%= link_to 'Log in', "/users/sign_up", class: "btn btn-secondary"%>
+          <%= link_to 'Sign in', "/users/sign_in", class: "btn btn-secondary"%>
+        </div>
       </div>
     </div>
   </div>
-</div>
 <% end %>
 
 <div class="container mt-5">
@@ -36,18 +36,18 @@
         </div>
         <div class="col-auto align-self-center">
           <% if current_user.present? %>
-          <%= link_to 'Add to cart',
-                      add_to_cart_path(item: @product.id),
-                      class: 'btn btn-info btn-lg', id: "cart_button",
-                      role: "button", style: "color: white",
-                      remote: true,
-                      data: { "bs-target": "#addProduct", "bs-toggle": "modal" }%>
+            <%= link_to 'Add to cart',
+                        add_to_cart_path(item: @product.id),
+                        class: 'btn btn-info btn-lg', id: "cart_button",
+                        role: "button", style: "color: white",
+                        remote: true,
+                        data: { "bs-target": "#addProduct", "bs-toggle": "modal" }%>
 
-          <%= link_to 'Buy now',
-                      new_order_path(product: @product.id),
-                      class: 'btn btn-success btn-lg', id: "buy_button",
-                      role: "button", style: "color: white"%>
-            <% else %>
+            <%= link_to 'Buy now',
+                        new_order_path(product: @product.id),
+                        class: 'btn btn-success btn-lg', id: "buy_button",
+                        role: "button", style: "color: white"%>
+          <% else %>
             <button type="button" class="btn btn-info btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal">
               Add to cart
             </button>
@@ -57,6 +57,7 @@
           <% end %>
         </div>
       </div>
+      <div>Rating <%= @product.rating %></div>
       <div class="row jumbotron mb-0">
         <h4>Config:</h4>
         <div class="col"> <%=@product.config %></div>
@@ -71,6 +72,24 @@
   <hr>
   <div class="row mx-3">
     <%= @product.about %>
+  </div>
+  <hr>
+  <div><%= link_to 'Add comment',  new_comment_path(product_id: @product.id),
+                   method: :get, class: 'btn btn-success btn-lg' %></div>
+  <div class="row">
+    <% if @product.comments.any? %>
+      <div>
+        <% @product.comments.each do |comment| %>
+          <div>Rating: <%= comment.rating %></div>
+        <%= comment.id %>:<%= comment.body %>
+          <hr>
+        <% end %>
+      </div>
+    <% else %>
+      <div class="alert alert-danger">
+        only registered user can left comment
+      </div>
+    <% end %>
   </div>
 
 </div>
