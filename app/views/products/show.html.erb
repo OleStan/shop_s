@@ -1,4 +1,16 @@
-
+<nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">
+      <%= link_to 'Main', home_path%>
+    </li>
+    <li class="breadcrumb-item">
+      <%= link_to @category.name, category_path(@category, @category.name)%>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page">
+      <%= @product.name %>
+    </li>
+  </ol>
+</nav>
 <% if current_user.nil? %>
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -88,6 +100,8 @@
         <% @product.comments.each do |comment| %>
           <div>Rating: <%= comment.rating %></div>
         <%= comment.id %>:<%= comment.body %>
+          <%= link_to "Delete", comment, method: :delete %>
+          <%= link_to 'Edit', edit_comment_path(comment), class: 'btn btn-info btn-sm', role: "button", style: "color: white" %>
           <hr>
         <% end %>
       </div>

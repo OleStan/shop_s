@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5ba736b8-3b3a-4341-8a27-e24d7318d837" name="Default Changelist" comment="comments ready no css">
+      <change afterPath="$PROJECT_DIR$/app/views/comments/edit.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/comments_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/comments_controller.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/products/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/products/show.html.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -164,7 +167,7 @@
       <workItem from="1611213589263" duration="8586000" />
       <workItem from="1611249602855" duration="12284000" />
       <workItem from="1611390835887" duration="9333000" />
-      <workItem from="1611415904089" duration="19455000" />
+      <workItem from="1611415904089" duration="22157000" />
     </task>
     <task id="LOCAL-00001" summary="no css ready cart index no css, js present">
       <created>1610919627018</created>
@@ -355,7 +358,14 @@
       <option name="project" value="LOCAL" />
       <updated>1611436413573</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="comments ready no css">
+      <created>1611437025731</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1611437025731</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
