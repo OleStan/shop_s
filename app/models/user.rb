@@ -1,7 +1,7 @@
 class User < ApplicationRecord
-  devise :database_authenticatable, :registerable,
+  devise :database_authenticatable, :registerable, :validatable,
          :recoverable, :rememberable, :omniauthable, omniauth_providers: [:github, :twitter]
-  :has_secure_password
+
   has_many :orders
   has_many :carts, dependent: :destroy
   has_many :comments, dependent: :destroy
@@ -13,7 +13,6 @@ class User < ApplicationRecord
 
   def self.from_omniauth(auth)
     puts auth
-    puts '0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       puts user
       user.provider = auth.provider
