@@ -19,7 +19,7 @@ class User < ApplicationRecord
       user.provider = auth.provider
       user.uid = auth.uid
       user.password = Devise.friendly_token[0, 20]
-      !auth.info.email.nil? ? user.email = auth.info.email : user.email = auth.info.nickname
+
     end
   end
 end
