@@ -7,7 +7,7 @@ gem 'ancestry'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.1.1'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3', '~> 1.4', group: :development
+
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
 # Use SCSS for stylesheets
@@ -28,8 +28,12 @@ gem 'pagy', '~> 3.5'
 #admin panel
 gem 'activeadmin'
 
-# Plus integrations with:
-gem 'devise'
+gem 'omniauth-github'
+gem 'omniauth-twitter', :github => 'arunagw/omniauth-twitter'
+gem 'devise', github: 'heartcombo/devise', branch: 'ca-omniauth-2'
+
+gem "omniauth-rails_csrf_protection"
+
 # for active stor
 gem 'cloudinary'
 # Use Active Storage variant

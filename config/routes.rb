@@ -2,8 +2,9 @@
 
 Rails.application.routes.draw do
   resources :comments
-  devise_for :users#, ActiveAdmin::Devise.config
-  devise_for :admin_users, ActiveAdmin::Devise.config
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+  # , ActiveAdmin::Devise.config
+  # devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   root 'pages#index', as: 'home'
   get 'add', to: 'carts#add', as: 'add_to_cart'
@@ -12,6 +13,7 @@ Rails.application.routes.draw do
   # get 'category', to: 'pages#category', as: 'category'
   resources :orders
   get 'order_list', to: 'orders#index', as: 'order_index'
+  post 'valid_email', to: 'orders#valid_email', as: 'valid_email'
   resources :carts
   resources :pages
   resources :comments
@@ -23,3 +25,4 @@ Rails.application.routes.draw do
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
+

@@ -1,6 +1,9 @@
 class OrdersController < ApplicationController
+ VALID_EMAIL_REGX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+
   before_action :set_user
   before_action :authenticate_user!
+ #before_action :valid_email
 
   def index
     @pagy, @orders = pagy(@user.orders, items: 5)
@@ -26,10 +29,19 @@ class OrdersController < ApplicationController
     end
   end
 
+
+
   private
 
   def set_user
     @user = current_user
+  end
+
+  def valid_email
+    if @user.email.match(VALID_EMAIL_REGX).nil?
+
+    end
+    render 'valid_email'
   end
 
   def permitted_order_params
