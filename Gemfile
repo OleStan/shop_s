@@ -28,8 +28,8 @@ gem 'pagy', '~> 3.5'
 #admin panel
 gem 'activeadmin'
 
-gem 'omniauth-github'
-gem 'omniauth-twitter', :github => 'arunagw/omniauth-twitter'
+gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
+
 gem 'devise', github: 'heartcombo/devise', branch: 'ca-omniauth-2'
 
 gem "omniauth-rails_csrf_protection"
