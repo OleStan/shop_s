@@ -1,9 +1,8 @@
 class OrdersController < ApplicationController
- VALID_EMAIL_REGX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
   before_action :set_user
   before_action :authenticate_user!
- #before_action :valid_email
+
 
   def index
     @pagy, @orders = pagy(@user.orders, items: 5)
@@ -20,7 +19,7 @@ class OrdersController < ApplicationController
     @order = Order.new(order_params)
     respond_to do |format|
       if @order.save
-        OrdersMailer.with(user: @user, product: @product).complete_order.deliver_now
+        OrdersMailer.with(user: @user, product: @product, order: @order).complete_order.deliver_now
         format.html { redirect_to order_index_url, notice: 'order was successfully created.' }
       else
         format.html { render :new }
@@ -29,19 +28,10 @@ class OrdersController < ApplicationController
     end
   end
 
-
-
   private
 
   def set_user
     @user = current_user
-  end
-
-  def valid_email
-    if @user.email.match(VALID_EMAIL_REGX).nil?
-
-    end
-    render 'valid_email'
   end
 
   def permitted_order_params

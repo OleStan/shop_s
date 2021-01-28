@@ -10,20 +10,22 @@
         <% end %>
     })
 </script>
-<nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item">
-      <%= link_to 'Main', home_path%>
-    </li>
-    <li class="breadcrumb-item">
-      <%= @category.name %>
-    </li>
-  </ol>
-</nav>
 <div class="row">
   <%= render 'categories/category'  %>
   <div class="col-9 ps-3 mt-5">
     <h1><%=  @category.present? ? @category.name : "Search result for: #{params[:product_name]}"%></h1>
+    <div class="row border border-3 p-2 mb-3 rounded align-items-center shadow-sm bg-white rounded">
+      <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+        <ol class="breadcrumb mb-0">
+          <li class="breadcrumb-item">
+            <%= link_to 'Main', home_path%>
+          </li>
+          <li class="breadcrumb-item">
+            <%= @category.name %>
+          </li>
+        </ol>
+      </nav>
+    </div>
     <div class="row mx-1 p-3 bg-light align-items-start alert alert-secondary">
       <div class="col-lg-4 col-sm-auto btn-group">
         <%= sortable "name",  params[:min], params[:max], params[:product_name] %>
