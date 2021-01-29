@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5ba736b8-3b3a-4341-8a27-e24d7318d837" name="Default Changelist" comment="half ready omniauth(test)">
+    <list default="true" id="5ba736b8-3b3a-4341-8a27-e24d7318d837" name="Default Changelist" comment="redy login by github">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/user.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/user.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/devise/shared/_links.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/devise/shared/_links.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/categories/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/categories/show.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/products/_product.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/products/_product.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/products/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/products/show.html.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,7 +175,7 @@
       <workItem from="1611689950237" duration="9966000" />
       <workItem from="1611731356921" duration="6415000" />
       <workItem from="1611754906875" duration="13517000" />
-      <workItem from="1611842091055" duration="6857000" />
+      <workItem from="1611842091055" duration="7877000" />
     </task>
     <task id="LOCAL-00001" summary="no css ready cart index no css, js present">
       <created>1610919627018</created>
@@ -442,7 +443,14 @@
       <option name="project" value="LOCAL" />
       <updated>1611845712140</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="redy login by github">
+      <created>1611928513088</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1611928513088</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -485,7 +493,8 @@
     <MESSAGE value="crud comment no css(breadcamp on board)" />
     <MESSAGE value="half ready omniauth" />
     <MESSAGE value="half ready omniauth(test)" />
-    <option name="LAST_COMMIT_MESSAGE" value="half ready omniauth(test)" />
+    <MESSAGE value="redy login by github" />
+    <option name="LAST_COMMIT_MESSAGE" value="redy login by github" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/shop_s@Development__shop_s.rcov" NAME="Development: shop_s Coverage Results" MODIFIED="1611928137016" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="shop_s" />
