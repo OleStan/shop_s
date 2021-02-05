@@ -56,6 +56,13 @@ group :development do
   # Can be configured to work on production as well see: https://github.com/MiniProfiler/rack-mini-profiler/blob/master/README.md
   gem 'rack-mini-profiler', '~> 2.0'
 
+  gem "capistrano"
+  gem "capistrano-rvm"
+  gem "capistrano-rails"
+  gem "capistrano3-puma", github: "seuros/capistrano-puma"
+  gem "capistrano-nginx", "~> 1.0"
+  gem "capistrano-upload-config"
+  gem "sshkit-sudo"
 end
 
 group :test do

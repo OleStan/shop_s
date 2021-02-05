@@ -2,10 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5ba736b8-3b3a-4341-8a27-e24d7318d837" name="Default Changelist" comment="redy login by github">
+      <change afterPath="$PROJECT_DIR$/lib/capistrano/tasks/puma_restart.rake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/capistrano/tasks/set_master_key.rake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Shop_s.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Shop_s.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/categories/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/categories/show.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/products/_product.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/products/_product.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/products/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/products/show.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.ruby-version" beforeDir="false" afterPath="$PROJECT_DIR$/.ruby-version" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/database.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/database.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,6 +181,8 @@
       <workItem from="1611731356921" duration="6415000" />
       <workItem from="1611754906875" duration="13517000" />
       <workItem from="1611842091055" duration="7877000" />
+      <workItem from="1612435011493" duration="8444000" />
+      <workItem from="1612462544654" duration="5095000" />
     </task>
     <task id="LOCAL-00001" summary="no css ready cart index no css, js present">
       <created>1610919627018</created>
@@ -497,6 +504,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="redy login by github" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/shop_s@Development__shop_s.rcov" NAME="Development: shop_s Coverage Results" MODIFIED="1611928137016" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="shop_s" />
+    <SUITE FILE_PATH="coverage/shop_s@Development__shop_s.rcov" NAME="Development: shop_s Coverage Results" MODIFIED="1612463440578" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="shop_s" />
   </component>
 </project>
